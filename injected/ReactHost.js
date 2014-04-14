@@ -43,7 +43,9 @@ if (typeof React !== 'undefined' && React.__internals) {
   ReactInternals = React.__internals;
 } else if (typeof require === 'function') {
   try { ReactInternals = require('React').__internals; } catch (x) {
-    try { ReactInternals = require('react').__internals; } catch (x) { }
+    try { ReactInternals = require('react').__internals; } catch (x) {
+      try { ReactInternals = require('/react').__internals; } catch (x) { }
+    }
  }
 }
 if (!ReactInternals) {
